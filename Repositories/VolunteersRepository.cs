@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectLibrary.Repositories.Interfaces;
 
 namespace ProjectLibrary.Repositories
 {
-    public class VolunteersRepository
+    public class VolunteersRepository : IVolunteersRepository
     {
         private readonly ProjectDbContext _dbContext;
         public VolunteersRepository(ProjectDbContext dbContext) { _dbContext = dbContext; }
@@ -58,7 +59,7 @@ namespace ProjectLibrary.Repositories
         {
             await _dbContext.Volunteers.Where(x => x.Id == id).ExecuteDeleteAsync();
         }
-        private bool IsAdmin(VolunteerEntity user)
+        public bool IsAdmin(VolunteerEntity user)
         {
             return user.IsAdmin;
         }

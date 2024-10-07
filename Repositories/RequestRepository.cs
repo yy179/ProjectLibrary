@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectLibrary.Repositories.Interfaces;
 
 namespace ProjectLibrary.Repositories
 {
-    public class RequestRepository
+    public class RequestRepository : IRequestRepository
     {
         private readonly ProjectDbContext _dbContext;
         public RequestRepository(ProjectDbContext dbContext) { _dbContext = dbContext; }

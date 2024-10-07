@@ -1,5 +1,6 @@
 ﻿using ProjectLibrary.Models;
 using Microsoft.EntityFrameworkCore;
+using ProjectLibrary.Repositories.Interfaces;
 using ProjectLibrary;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProjectLibrary.Repositories
 {
-    public class MilitaryUnitRepository
+    public class MilitaryUnitRepository : IMilitaryUnitRepository
     {
         private readonly ProjectDbContext _dbContext;
         public MilitaryUnitRepository(ProjectDbContext dbContext) { _dbContext = dbContext; }

@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectLibrary.Repositories.Interfaces;
 
 namespace ProjectLibrary.Repositories
 {
-    public class ContactPersonRepository
+    public class ContactPersonRepository : IContactPersonRepository
     {
         private readonly ProjectDbContext _dbContext;
         public ContactPersonRepository(ProjectDbContext dbContext) { _dbContext = dbContext; }
