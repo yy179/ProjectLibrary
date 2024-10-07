@@ -32,11 +32,7 @@ namespace ProjectLibrary.Services
             if (string.IsNullOrWhiteSpace(city)) throw new ArgumentException("Город обязателен.");
             if (string.IsNullOrWhiteSpace(biography)) throw new ArgumentException("Биография обязательна.");
             var age = DateTime.Now.Year - dateOfBirth.Year;
-            if (age < 18)
-            {
-                throw new InvalidOperationException("Волонтер должен быть старше 18 лет.");
-            }
-
+            if (age < 18) throw new InvalidOperationException("Волонтер должен быть старше 18 лет.");
             await _volunteerRepository.Add(id, name, dateOfBirth, city, biography, organizations, requests);
         }
         public async Task Update(Guid id, string name, DateTime dateOfBirth, string city, string biography, List<OrganizationEntity> organizations, List<RequestEntity> requests)

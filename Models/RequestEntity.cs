@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectLibrary.Models
 {
+
     public class RequestEntity
     {
         public Guid Id { get; set; }
