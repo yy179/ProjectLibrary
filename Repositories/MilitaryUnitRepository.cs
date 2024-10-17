@@ -22,10 +22,10 @@ namespace ProjectLibrary.Repositories
         {
             return await _dbContext.MilitaryUnits.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
-        public async Task<List<RequestEntity>> GetRequestsByMilitaryUnit(Guid militaryUnitId, bool isActive)
+        public async Task<List<RequestEntity>> GetRequestsByMilitaryUnit(Guid militaryUnitId)
         {
             return await _dbContext.Requests
-                .Where(r => r.MilitaryUnitId == militaryUnitId && r.IsActive == isActive)
+                .Where(r => r.MilitaryUnitId == militaryUnitId)
                 .AsNoTracking().ToListAsync();
         }
 

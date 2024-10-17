@@ -29,9 +29,9 @@ namespace ProjectLibrary.Services
             return await _militaryUnitRepository.GetById(id);
         }
 
-        public async Task<List<RequestEntity>> GetRequestsByMilitaryUnit(Guid militaryUnitId, bool isActive)
+        public async Task<List<RequestEntity>> GetRequestsByMilitaryUnit(Guid militaryUnitId)
         {
-            return await _militaryUnitRepository.GetRequestsByMilitaryUnit(militaryUnitId, isActive);
+            return await _militaryUnitRepository.GetRequestsByMilitaryUnit(militaryUnitId);
         }
 
         public async Task Add(Guid id, Guid? contactPersonId, string name, List<RequestEntity> requests)
