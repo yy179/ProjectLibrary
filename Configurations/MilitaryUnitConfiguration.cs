@@ -14,7 +14,11 @@ namespace ProjectLibrary.Configurations
         public void Configure(EntityTypeBuilder<MilitaryUnitEntity> builder)
         {
             builder.HasKey(x => x.Id);
-            
+            builder
+                .HasOne(x => x.ContactPerson)
+                .WithOne(x => x.MilitaryUnit)
+                .HasForeignKey<ContactPersonEntity>(x => x.MilitaryUnitId)
+                .IsRequired(false);
         }
     }
 }
