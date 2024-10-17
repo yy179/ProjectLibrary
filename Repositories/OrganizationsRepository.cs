@@ -22,6 +22,8 @@ namespace ProjectLibrary.Repositories
         {
             return await _dbContext.Organizations.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
+        
+
         public async Task<List<VolunteerEntity>> GetVolunteersByOrganization(Guid organizationId)
         {
             var organization = await _dbContext.Organizations.Include(o => o.Volunteers).AsNoTracking().FirstOrDefaultAsync(o => o.Id == organizationId);

@@ -11,6 +11,7 @@ namespace ProjectLibrary.Repositories.Interfaces
     {
         Task<List<OrganizationEntity>> Get();
         Task<OrganizationEntity?> GetById(Guid id);
+        
         Task<List<VolunteerEntity>> GetVolunteersByOrganization(Guid organizationId);
         Task<List<RequestEntity>> GetActiveRequestsByOrganization(Guid organizationId);
         Task<List<RequestEntity>> GetCompletedRequestsByOrganization(Guid organizationId);

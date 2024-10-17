@@ -1,4 +1,5 @@
-﻿using ProjectLibrary.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjectLibrary.Models;
 using ProjectLibrary.Repositories;
 using ProjectLibrary.Repositories.Interfaces;
 using ProjectLibrary.Services.Interfaces;
@@ -29,6 +30,10 @@ namespace ProjectLibrary.Services
             return await _requestsRepository.GetById(id);
         }
 
+        public async Task<IEnumerable<RequestEntity>> GetByMilitaryUnitId(Guid militaryUnitId)
+        {
+            return await _requestsRepository.GetByMilitaryUnitId(militaryUnitId);
+        }
         public async Task<List<RequestEntity>> GetByStatus(bool isActive)
         {
             return await _requestsRepository.GetByStatus(isActive);

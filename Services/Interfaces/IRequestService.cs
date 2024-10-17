@@ -14,6 +14,7 @@ namespace ProjectLibrary.Services.Interfaces
         Task<List<RequestEntity>> GetByStatus(bool isActive);
         Task<List<RequestEntity>> GetByVolunteerId(Guid volunteerId);
         Task<List<RequestEntity>> GetByOrganizationId(Guid organizationId);
+        Task<IEnumerable<RequestEntity>> GetByMilitaryUnitId(Guid militaryUnitId);
         Task Add(
         Guid id,
         string shortDescription,

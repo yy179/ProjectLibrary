@@ -28,6 +28,12 @@ namespace ProjectLibrary.Repositories
                 .Where(r => r.IsActive == isActive)
                 .AsNoTracking().ToListAsync();
         }
+        public async Task<IEnumerable<RequestEntity>> GetByMilitaryUnitId(Guid militaryUnitId)
+        {
+            return await _dbContext.Requests
+                                 .Where(r => r.MilitaryUnitId == militaryUnitId)
+                                 .ToListAsync();
+        }
         public async Task<List<RequestEntity>> GetByVolunteerId(Guid volunteerId)
         {
             return await _dbContext.Requests
