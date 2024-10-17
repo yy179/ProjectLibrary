@@ -29,7 +29,7 @@ namespace ProjectLibrary.Repositories
                 .AsNoTracking().ToListAsync();
         }
 
-        public async Task Add(Guid id, Guid contactPersonId, string name, List<RequestEntity> requests)
+        public async Task Add(Guid id, Guid? contactPersonId, string name, List<RequestEntity> requests)
         {
             var militaryUnitEntity = new MilitaryUnitEntity
             {
@@ -41,7 +41,7 @@ namespace ProjectLibrary.Repositories
             await _dbContext.AddAsync(militaryUnitEntity);
             await _dbContext.SaveChangesAsync();
         }
-        public async Task Update(Guid id, Guid contactPersonId, string name, List<RequestEntity> requests)
+        public async Task Update(Guid id, Guid? contactPersonId, string name, List<RequestEntity> requests)
         {
             var militaryUnit = await _dbContext.MilitaryUnits
             .Include(o => o.ContactPerson)

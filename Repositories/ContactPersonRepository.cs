@@ -23,7 +23,7 @@ namespace ProjectLibrary.Repositories
         {
             return await _dbContext.ContactPersons.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
-        public async Task Add(Guid id, Guid militaryUnitId, string name, string surname, DateTime dateOfBirth, string address)
+        public async Task Add(Guid id, Guid? militaryUnitId, string name, string surname, DateTime dateOfBirth, string address)
         {
             var contactPersonEntity = new ContactPersonEntity
             {
@@ -37,7 +37,7 @@ namespace ProjectLibrary.Repositories
             await _dbContext.AddAsync(contactPersonEntity);
             await _dbContext.SaveChangesAsync();
         }
-        public async Task Update(Guid id, Guid militaryUnitId, string name, string surname, DateTime dateOfBirth, string address)
+        public async Task Update(Guid id, Guid? militaryUnitId, string name, string surname, DateTime dateOfBirth, string address)
         {
             var contactPersonUnit = await _dbContext.ContactPersons
             .Include(o => o.MilitaryUnit)

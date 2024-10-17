@@ -12,8 +12,8 @@ namespace ProjectLibrary.Services.Interfaces
         Task<List<MilitaryUnitEntity>> Get();
         Task<MilitaryUnitEntity?> GetById(Guid id);
         Task<List<RequestEntity>> GetRequestsByMilitaryUnit(Guid militaryUnitId, bool isActive);
-        Task Add(Guid id, Guid contactPersonId, string name, List<RequestEntity> requests);
-        Task Update(Guid id, Guid contactPersonId, string name, List<RequestEntity> requests);
+        Task Add(Guid id, Guid? contactPersonId, string name, List<RequestEntity> requests);
+        Task Update(Guid id, Guid? contactPersonId, string name, List<RequestEntity> requests);
         Task Delete(Guid id);
     }
 }
