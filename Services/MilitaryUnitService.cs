@@ -37,7 +37,6 @@ namespace ProjectLibrary.Services
         public async Task Add(Guid id, Guid contactPersonId, string name, List<RequestEntity> requests)
         {
             if (id == Guid.Empty) throw new ArgumentException("ID не может быть пустым.");
-            if (contactPersonId == Guid.Empty) throw new ArgumentException("ID контактного лица не может быть пустым.");
             if (string.IsNullOrWhiteSpace(name)) throw new ArgumentException("Имя обязательно.");
             await _militaryUnitRepository.Add(id, contactPersonId, name, requests);
         }
