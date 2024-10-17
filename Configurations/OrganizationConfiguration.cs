@@ -17,7 +17,8 @@ namespace ProjectLibrary.Configurations
             builder
                 .HasMany(x => x.Requests)
                 .WithOne(x => x.Organization)
-                .HasForeignKey(x => x.OrganizationId);
+                .HasForeignKey(x => x.OrganizationId)
+                .IsRequired(false);
 
         }
     }

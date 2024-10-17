@@ -20,9 +20,9 @@ namespace ProjectLibrary.Models
         public DateTime? AcceptedDate { get; set; }
         public DateTime? CompletedDate { get; set; }
         public Guid? OrganizationId { get; set; }
-        public OrganizationEntity Organization { get; set; }
+        public OrganizationEntity? Organization { get; set; }
         public Guid? VolunteerId { get; set; }
-        public VolunteerEntity Volunteer { get; set; }
+        public VolunteerEntity? Volunteer { get; set; }
 
     }
 }
