@@ -13,7 +13,9 @@ namespace ProjectLibrary.Repositories
     public class VolunteersRepository : IVolunteersRepository
     {
         private readonly ProjectDbContext _dbContext;
-        public VolunteersRepository(ProjectDbContext dbContext) { _dbContext = dbContext; }
+        private readonly Guid _defaultOrganizationId;
+        public VolunteersRepository(ProjectDbContext dbContext) { _dbContext = dbContext;
+            _defaultOrganizationId = _dbContext.Organizations.FirstOrDefault(o => o.Name == "None").Id;}
         public async Task<List<VolunteerEntity>> Get()
         {
             return await _dbContext.Volunteers.AsNoTracking().ToListAsync();
@@ -24,6 +26,10 @@ namespace ProjectLibrary.Repositories
         }
         public async Task Add(Guid id, string name, DateTime dateOfBirth, string city, string biography, List<OrganizationEntity> organizations, List<RequestEntity> requests)
         {
+            organizations = organizations?.Any() == true ? organizations : new List<OrganizationEntity>
+            {
+                await _dbContext.Organizations.FirstOrDefaultAsync(o => o.Id == _defaultOrganizationId)
+            };
             var volunteerEntity = new VolunteerEntity
             {
                 Id = id,
@@ -49,8 +55,12 @@ namespace ProjectLibrary.Repositories
                 volunteer.DateOfBirth = dateOfBirth;
                 volunteer.City = city;
                 volunteer.Biography = biography;
-                volunteer.Organizations = organizations;
-                volunteer.Requests = requests;
+                volunteer.Organizations = organizations?.Any() == true ? organizations : new List<OrganizationEntity>
+                {
+                    await _dbContext.Organizations.FirstOrDefaultAsync(o => o.Id == _defaultOrganizationId)
+                };
+
+                volunteer.Requests = requests ?? new List<RequestEntity>();
 
                 await _dbContext.SaveChangesAsync();
             }
