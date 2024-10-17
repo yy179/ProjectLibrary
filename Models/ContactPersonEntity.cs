@@ -14,7 +14,7 @@ namespace ProjectLibrary.Models
         public string Surname { get; set; } = string.Empty;
         public string Number { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
-        public Guid MilitaryUnitId { get; set; }
-        public MilitaryUnitEntity MilitaryUnit { get; set; }
+        public Guid? MilitaryUnitId { get; set; }
+        public MilitaryUnitEntity? MilitaryUnit { get; set; }
     }
 }

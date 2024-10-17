@@ -10,7 +10,7 @@ namespace ProjectLibrary.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public Guid ContactPersonId { get; set; }
+        public Guid? ContactPersonId { get; set; }
         public ContactPersonEntity? ContactPerson { get; set; }
         public List<RequestEntity> Requests { get; set; } = [];
     }

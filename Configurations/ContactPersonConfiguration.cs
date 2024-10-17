@@ -17,7 +17,8 @@ namespace ProjectLibrary.Configurations
             builder
                 .HasOne(x => x.MilitaryUnit)
                 .WithOne(x => x.ContactPerson)
-                .HasForeignKey<MilitaryUnitEntity>(x => x.ContactPersonId);
+                .HasForeignKey<MilitaryUnitEntity>(x => x.ContactPersonId)
+                .IsRequired(false);
         }
     }
 }
