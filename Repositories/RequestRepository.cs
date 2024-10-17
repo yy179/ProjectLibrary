@@ -61,8 +61,8 @@ namespace ProjectLibrary.Repositories
                 DueDate = dueDate,
                 IsActive = isActive,
                 MilitaryUnitId = militaryUnitId,
-                OrganizationId = organizationId,
-                VolunteerId = volunteerId,
+                OrganizationId = organizationId ?? Guid.Empty,
+                VolunteerId = volunteerId ?? Guid.Empty,
             };
             await _dbContext.AddAsync(requestEntity);
             await _dbContext.SaveChangesAsync();
@@ -90,8 +90,8 @@ namespace ProjectLibrary.Repositories
                 request.DueDate = dueDate;
                 request.IsActive = isActive;
                 request.MilitaryUnitId = militaryUnitId;
-                request.OrganizationId = organizationId;
-                request.VolunteerId = volunteerId;
+                request.OrganizationId = organizationId ?? Guid.Empty;
+                request.VolunteerId = volunteerId ?? Guid.Empty;
                 await _dbContext.SaveChangesAsync();
             }
         }
