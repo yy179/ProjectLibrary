@@ -28,7 +28,7 @@ namespace ProjectLibrary.Repositories
             var contactPersonEntity = new ContactPersonEntity
             {
                 Id = id,
-                MilitaryUnitId = militaryUnitId,
+                MilitaryUnitId = militaryUnitId ?? Guid.Empty,
                 Name = name,
                 Surname = surname,
                 DateOfBirth = dateOfBirth,
@@ -46,7 +46,7 @@ namespace ProjectLibrary.Repositories
             {
                 contactPersonUnit.Name = name;
                 contactPersonUnit.Id = id;
-                contactPersonUnit.MilitaryUnitId = militaryUnitId;
+                contactPersonUnit.MilitaryUnitId = militaryUnitId ?? Guid.Empty;
                 contactPersonUnit.DateOfBirth = dateOfBirth;
                 contactPersonUnit.Surname = surname;
                 contactPersonUnit.Address = address;

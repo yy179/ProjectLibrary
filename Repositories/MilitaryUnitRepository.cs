@@ -35,7 +35,7 @@ namespace ProjectLibrary.Repositories
             {
                 Id = id,
                 Name = name,
-                ContactPersonId = contactPersonId,
+                ContactPersonId = contactPersonId ?? Guid.Empty,
                 Requests = requests ?? new List<RequestEntity>()
             };
             await _dbContext.AddAsync(militaryUnitEntity);
@@ -51,7 +51,7 @@ namespace ProjectLibrary.Repositories
             {
                 militaryUnit.Name = name;
                 militaryUnit.Id = id;
-                militaryUnit.ContactPersonId = contactPersonId;
+                militaryUnit.ContactPersonId = contactPersonId ?? Guid.Empty;
                 militaryUnit.Requests = requests;
                 await _dbContext.SaveChangesAsync();
             }
